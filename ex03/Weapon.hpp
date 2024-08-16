@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/16 19:47:53 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/08/16 20:20:01 by ebinjama         ###   ########.fr       */
+/*   Created: 2024/08/16 19:42:12 by ebinjama          #+#    #+#             */
+/*   Updated: 2024/08/16 20:20:20 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#pragma once
 
-Weapon::Weapon()
-{
-	_type = "";
-}
+# include <string>
 
-Weapon::Weapon(const std::string& type)
+class Weapon
 {
-	_type = type;
-}
+public:
+	const std::string& getType();
+	void setType(const std::string& weaponType);
 
-Weapon::~Weapon()
-{
-}
+	Weapon(const std::string& type);
+	Weapon& operator=(const Weapon& other);
 
-Weapon& Weapon::operator=(const Weapon& other)
-{
-	this->_type = other._type;
-	return (*this);
-}
+	Weapon();
+	~Weapon();
 
-void Weapon::setType(const std::string& newType)
-{
-	_type = newType;
-}
-
-const std::string& Weapon::getType()
-{
-	return (_type);
-}
+private:
+	std::string _type;
+};

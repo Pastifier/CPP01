@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/16 19:47:53 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/08/16 20:20:01 by ebinjama         ###   ########.fr       */
+/*   Created: 2024/08/16 19:53:08 by ebinjama          #+#    #+#             */
+/*   Updated: 2024/08/16 21:13:51 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include <string>
 
-Weapon::Weapon()
+class HumanA
 {
-	_type = "";
-}
+public:
+	void attack();
 
-Weapon::Weapon(const std::string& type)
-{
-	_type = type;
-}
+	HumanA(const std::string& name, Weapon& weapon);
+	~HumanA();
 
-Weapon::~Weapon()
-{
-}
-
-Weapon& Weapon::operator=(const Weapon& other)
-{
-	this->_type = other._type;
-	return (*this);
-}
-
-void Weapon::setType(const std::string& newType)
-{
-	_type = newType;
-}
-
-const std::string& Weapon::getType()
-{
-	return (_type);
-}
+private:
+	std::string _name;
+	Weapon& _weapon;
+};
