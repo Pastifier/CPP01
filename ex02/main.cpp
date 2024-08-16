@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 18:10:04 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/08/16 18:18:13 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/08/16 18:22:39 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int main(void) {
 	std::string* stringPTR = &brain;
 	std::string& stringREF = brain;
 
-	std::cout << "brain's addr: " << (ll_t)stringPTR << std::endl;
-	std::cout << "stringPTR's addr: " << (ll_t)(&stringPTR) << std::endl;
+	std::cout << "brain's addr: " << (ll_t)(&brain) << std::endl;
+	std::cout << "stringPTR's addr: " << (ll_t)(stringPTR) << std::endl;
 	std::cout << "stringREF's addr: " << (ll_t)(&stringREF) << std::endl;
 
 	std::cout << "brain's value: " << brain << std::endl;
