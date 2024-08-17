@@ -6,7 +6,7 @@
 /*   By: ebinjama <ebinjama@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 20:42:31 by ebinjama          #+#    #+#             */
-/*   Updated: 2024/08/16 21:11:33 by ebinjama         ###   ########.fr       */
+/*   Updated: 2024/08/17 12:05:05 by ebinjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,19 @@
 HumanB::HumanB(const std::string& name)
 {
 	_name = name;
-	_weapon = new Weapon();
+	_weapon = nullptr;
 }
 
 void HumanB::attack()
 {
-	std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
+	std::cout << _name << " attacks with their ";
+	if (_weapon)
+		std::cout << _weapon->getType() << std::endl;
+	else
+		std::cout << "no weapon" << std::endl;
 }
 
-void HumanB::setWeapon(Weapon weapon)
+void HumanB::setWeapon(Weapon &weapon)
 {
-	Weapon* newWeapon;
-	try {
-		newWeapon = new Weapon();
-	} catch (std::bad_alloc& e) {
-		std::cerr << e.what() << std::endl;
-	}
-	*newWeapon = weapon;
-	this->_weapon = newWeapon;
+	this->_weapon = &weapon;
 }
