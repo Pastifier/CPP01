@@ -15,6 +15,7 @@
 int main(int argc, char* argv[]) {
 	if (argc != 4) {
 		std::cerr << "Usage:\n\t./sifl <filename> <string1> <string2>" << std::endl;
+		return 1;
 	}
 	std::string filename = argv[1];
 	std::string s1, s2;
