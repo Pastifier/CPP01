@@ -39,23 +39,24 @@ int main(int argc, char* argv[]) {
 	}
 	fileIn.close();
 
-	std::ofstream fileOut(filename);
+	std::ofstream fileOut(filename + ".replace");
 	if (!fileOut) {
-		std::cerr << "Error opening file: " << filename << " for writing." << std::endl;
+		std::cerr << "Error creating/opening output file: " << filename + ".replace" << " for writing." << std::endl;
 		return 1;
 	}
 
 	std::string* modifiedContent = replaceAll(content, s1, s2);
 	if (!modifiedContent)
-		return 1;
+		return (fileOut.close(), 1);
 
 	try {
 		fileOut.exceptions(std::ofstream::badbit | std::ofstream::failbit);
 		fileOut << *modifiedContent;
 	} catch (const std::fstream::failure& e) {
-		std::cerr << "Exception caught: writing to file: " << filename << "\n" << e.what() << std::endl;
+		std::cerr << "Exception caught while writing to file: " << filename << "\n" << e.what() << std::endl;
 		fileOut.close();
 		delete modifiedContent;
+		return 1;
 	}
 
 
