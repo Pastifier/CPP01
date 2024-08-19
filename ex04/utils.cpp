@@ -43,10 +43,10 @@ std::string* replaceAll(const std::string& str, const std::string& from, const s
 			result->append(to);
 		} catch (const std::bad_alloc& e) {
 			std::cerr << "Memory allocation failed: " << e.what() << std::endl;
-			return nullptr;
+			return NULL;
 		} catch (const std::length_error& e) {
 			std::cerr << "Maximum length exceeded: " << e.what() << std::endl;
-			return nullptr;
+			return NULL;
 		}
 		curr_pos = found_pos + from.length();
 	}
@@ -55,10 +55,10 @@ std::string* replaceAll(const std::string& str, const std::string& from, const s
 		result->append(str, curr_pos, std::string::npos);
 	} catch (const std::bad_alloc& e) {
 		std::cerr << "Memory allocation failed: " << e.what() << std::endl;
-		return nullptr;
+		return NULL;
 	} catch (const std::length_error& e) {
 		std::cerr << "Maximum length exceeded: " << e.what() << std::endl;
-		return nullptr;
+		return NULL;
 	}
 	return result;
 }

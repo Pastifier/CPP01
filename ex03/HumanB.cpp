@@ -16,7 +16,7 @@
 HumanB::HumanB(const std::string& name)
 {
 	_name = name;
-	_weapon = nullptr;
+	_weapon = NULL;
 }
 
 void HumanB::attack()

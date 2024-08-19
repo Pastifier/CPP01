@@ -21,12 +21,16 @@ int main(int argc, char* argv[]) {
 	std::string s1, s2;
 	try {
 		s1 = argv[2];
+		if (s1 == "") {
+			std::cerr << "Illogical operation: Can't replace instances of an empty string" << std::endl;
+			return 1;
+		}
 		s2 = argv[3];
 	} catch (std::bad_alloc& e) {
 		std::cerr << "Exception caught: setting strings\n" << e.what() << std::endl;
 	}
 
-	std::ifstream fileIn (filename);
+	std::ifstream fileIn (filename.c_str());
 	if (!fileIn) {
 		std::cerr << "Error opening file: " << filename << " for reading." << std::endl;
 		return 1;
@@ -40,7 +44,7 @@ int main(int argc, char* argv[]) {
 	}
 	fileIn.close();
 
-	std::ofstream fileOut(filename + ".replace");
+	std::ofstream fileOut((filename + ".replace").c_str());
 	if (!fileOut) {
 		std::cerr << "Error creating/opening output file: " << filename + ".replace" << " for writing." << std::endl;
 		return 1;

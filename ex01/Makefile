@@ -6,7 +6,7 @@ CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 # Targets
-SRC := main.cpp Zombie.cpp zombieHorde.cpp
+SRC := main.cpp Zombie.cpp ZombieHorde.cpp
 
 # Rules
 
