@@ -19,6 +19,11 @@ Zombie* zombieHorde(int N, std::string name)
 
 	try {
 		firstZombie = new Zombie[N];
+		if (!N) {
+			delete[] firstZombie;
+			std::cerr << "WARNING: array of objects allocated with zero elements will now be deleted. Substituting with NULL" << std::endl;
+			return NULL;
+		}
 	} catch (std::bad_alloc& e) {
 		std::cerr << "Allocation failed: " << e.what() << std::endl;
 		return NULL;
